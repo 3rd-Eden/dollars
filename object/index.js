@@ -20,4 +20,7 @@ function clone(obj) {
   return result;
 }
 
+//
+// Expose the methods.
+//
 exports.clone = clone;
