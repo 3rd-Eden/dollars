@@ -17,3 +17,5 @@ exports.shallow = {
     return Array.isArray(obj) ? array.clone(obj) : object.clone(obj);
   }
 };
+
+exports.nope = function nope() {};
