@@ -1,0 +1,38 @@
+{
+  "name": "dollars",
+  "version": "0.0.2",
+  "description": "write less, do more, save dollars",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3rd-Eden/dollars"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --ui bdd test.js",
+    "benchmark": "mocha --reporter spec --ui bdd benchmark.js",
+    "watch": "mocha --watch --reporter spec --ui bdd test.js",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha -- --reporter spec --ui bdd test.js",
+    "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec --ui bdd test.js"
+  },
+  "keywords": [
+    "dollars",
+    "$",
+    "$$"
+  ],
+  "author": "Arnout Kazemier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/3rd-Eden/dollars/issues"
+  },
+  "homepage": "https://github.com/3rd-Eden/dollars",
+  "devDependencies": {
+    "assume": "0.0.x",
+    "benchmark": "1.0.x",
+    "dollars": "*",
+    "fast.js": "0.1.x",
+    "istanbul": "0.3.x",
+    "kuler": "0.0.0",
+    "mocha": "2.0.x",
+    "pre-commit": "0.0.x"
+  }
+}
