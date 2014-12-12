@@ -23,8 +23,8 @@ function clone(obj) {
 /**
  * Map the values of the object to something else.
  *
- * @param {Array} arr Array who's results we should transform.
- * @returns {Array} Mapped array.
+ * @param {Object} obj Object who's results we should transform.
+ * @returns {Object} The transformed object.
  * @api public
  */
 function map(obj, fn) {
