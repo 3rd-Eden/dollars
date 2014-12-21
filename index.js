@@ -22,7 +22,7 @@ dollars.function  = dollars.fn  = fn;
 // and Object's so we can provide one single seamless API.
 //
 array.each(['clone', 'each'], function each(key) {
-  dollars[key] = dollars[key].length === 2 ? function proxy2args(obj, fn) {
+  dollars[key] = array[key].length === 2 ? function proxy2args(obj, fn) {
     return Array.isArray(obj)
     ? array[key](obj, fn)
     : object[fn](obj, fn);
