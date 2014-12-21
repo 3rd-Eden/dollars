@@ -1,6 +1,6 @@
 'use strict';
 
-var dollars = Object.create(null):
+var dollars = Object.create(null);
 
 /**
  * Simple placeholder function where you can default to if no callback or fn is
