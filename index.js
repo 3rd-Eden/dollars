@@ -37,11 +37,11 @@ array.each(['clone', 'each'], function each(key) {
 // Now that the shorthand methods are added we can add shorthand methods for all
 // other API's. These methods should not override the existing shorthands.
 //
-array.each([object, array, fn], function each(primative) {
-  object.each(function each(method) {
+array.each([object, array, fn], function each(type) {
+  object.each(type, function each(fn, method) {
     if (method in dollars) return;
 
-    dollars[method] = primative[method];
+    dollars[method] = fn;
   });
 });
 
