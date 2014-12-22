@@ -30,11 +30,24 @@ Or if you require more swag in your application you can require it as following:
 var $$$$$$$$$$$$$$$$$$$ = require('dollars');
 ```
 
+## Table of Contents
+
+- [Object](#object)
+  - [clone](#dollarsobjectclone)
+  - [map](#dollarsobjectmap)
+  - [each](#dollarsobjecteach)
+  - [breaks](#dollarsobjectbreaks)
+  - [concat](#dollarsobjectconcat)
+- [Array](#array)
+- [Function](#function)
+
 ### Object
 
 The `dollars.object` contains all object specific utility methods. We do try to
-provide API parity with the [Array](#array) methods. The following methods are
-available:
+provide API parity with the [Array](#array) methods. The object is also aliased
+as `dollars.obj` for shorter notation.
+
+The following methods are available:
 
 #### dollars.object.clone
 
