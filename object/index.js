@@ -89,9 +89,7 @@ dollars.breaks = function breaks(obj, fn) {
 dollars.concat = function concat(obj) {
   var l = arguments.length
     , args = new Array(l - 1)
-    , i = 1
-    , keys
-    , key;
+    , i = 1;
 
   for (; i < l; i++) {
     args[i - 1] = arguments[i];
@@ -101,10 +99,8 @@ dollars.concat = function concat(obj) {
   i = 0;
 
   for (; i < l; i++) {
-    keys = Object.keys(args[i]);
-
-    for (key in keys) {
-      obj[key] = args[i][key];
+    for (var j = 0, keys = Object.keys(args[i]), len = keys.length; j < len; j++) {
+      obj[keys[j]] = args[i][keys[j]];
     }
   }
 
