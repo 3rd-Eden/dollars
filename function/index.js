@@ -9,7 +9,48 @@ var dollars = Object.create(null);
  * @type {Function}
  * @public
  */
-dollars.nope = function nope() { };
+dollars.nope = function nope() {};
+
+/**
+ * Return a function which is optimized to call with a supplied with a given
+ * amount of arguments.
+ *
+ * @param {Number} amount The amount of arguments we should optimize for.
+ * @param {Boolean} context Does the supplied function require context.
+ * @returns {Function}
+ * @api public
+ */
+dollars.applies = function applies(amount, context) {
+  var body = [ 'return function applies() {switch (arguments.length) {' ]
+    , i = 0
+    , args
+    , j;
+
+  for (; i < amount; i++) {
+    for (j = 0, args = new Array(i); j < i; j++) {
+      args[j] = 'arguments['+ j +']';
+    }
+
+    body.push(
+      'case '+ i +': return fn',
+      context ? '.call(context,' : '(',
+      args.join(','),
+      ');'
+    );
+  }
+
+  body.push(
+        'default: return fn.apply(',
+        context ? 'context' : 'undefined',
+      ', arguments);',
+      '}',
+    '};'
+  );
+
+  return context
+    ? new Function('fn', context, body.join(''))
+    : new Function('fn', body.join(''));
+};
 
 /**
  * Helper function to prevent de-optimization of your code by executing the
