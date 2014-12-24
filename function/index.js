@@ -21,7 +21,7 @@ dollars.nope = function nope() {};
  * @api public
  */
 dollars.applies = function applies(amount, context) {
-  var body = [ 'return function applies() {switch (arguments.length) {' ]
+  var body = [ 'return function applies() { "use strict"; switch (arguments.length) {' ]
     , i = 0
     , args
     , j;
