@@ -17,6 +17,44 @@ describe('dollars', function () {
       });
     });
 
+    describe('.each', function () {
+      it('iterates the values', function (next) {
+        next = assume.plan(4, next);
+
+        dollars.object.each({ foo: 1, far: 1}, function (value, key) {
+          assume(value).equals(1);
+          assume(key.charAt(0)).equals('f');
+        });
+
+        next();
+      });
+    });
+
+    describe('.breaks', function () {
+      it('can break the iteration by returning true', function (next) {
+        next = assume.plan(1, next);
+
+        dollars.object.breaks({ foo: 'bar', bar: 'bar' }, function (value, key) {
+          assume(value).equals('bar');
+
+          return true;
+        });
+
+        next();
+      });
+    });
+
+    describe('.map', function () {
+      it('returns a new modified object', function () {
+        var res = dollars.object.map({ foo: 'bar', bar: 'baz' }, function (value, key) {
+          return value.toUpperCase();
+        });
+
+        assume(res.foo).equals('BAR');
+        assume(res.bar).equals('BAZ');
+      });
+    });
+
     describe('.concat', function () {
       it('merges objects', function () {
         var res = dollars.object.concat({}, { foo: 'bar' }, { bar: 'foo' });
