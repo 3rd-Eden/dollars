@@ -4,6 +4,24 @@ describe('dollars', function () {
   var dollars = require('./')
     , assume = require('assume');
 
+  describe('.clone', function () {
+    it('clones an array', function () {
+      var data = ['foo', ['bar']]
+        , clone = dollars.clone(data);
+
+      assume(clone).does.not.equal(data);
+      assume(clone).deep.equals(data);
+    });
+
+    it('clones an object', function () {
+      var data = { foo: 'boo', bar: { foo: 'bar' }}
+        , clone = dollars.clone(data);
+
+      assume(clone).does.not.equal(data);
+      assume(clone).deep.equals(data);
+    });
+  });
+
   describe('.object', function () {
     describe('.clone', function () {
       var obj = { foo: 'bar', bar: undefined };
