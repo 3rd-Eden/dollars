@@ -25,11 +25,11 @@ array.each(['clone', 'each', 'breaks', 'concat'], function each(key) {
   dollars[key] = array[key].length === 2 ? function proxy2args(obj, fn) {
     return Array.isArray(obj)
     ? array[key](obj, fn)
-    : object[fn](obj, fn);
+    : object[key](obj, fn);
   } : function proxy1arg(obj) {
     return Array.isArray(obj)
     ? array[key](obj)
-    : object[fn](obj);
+    : object[key](obj);
   };
 });
 
