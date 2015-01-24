@@ -26,13 +26,13 @@
   },
   "homepage": "https://github.com/3rd-Eden/dollars",
   "devDependencies": {
-    "assume": "0.0.x",
+    "assume": "1.1.x",
     "benchmark": "1.0.x",
     "dollars": "*",
     "fast.js": "0.1.x",
     "istanbul": "0.3.x",
     "kuler": "0.0.0",
-    "mocha": "2.0.x",
+    "mocha": "2.1.x",
     "pre-commit": "0.0.x"
   }
 }
