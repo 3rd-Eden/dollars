@@ -21,15 +21,17 @@ dollars.function  = dollars.fn  = fn;
 // Create shorthand methods for methods that have API compatibility for Array's
 // and Object's so we can provide one single seamless API.
 //
-array.each(['clone', 'each', 'breaks', 'concat', 'map'], function each(key) {
-  dollars[key] = array[key].length === 2 ? function proxy2args(obj, fn) {
+array.each(object.keys(array), function shorthand(method) {
+  if (!(method in object)) return;
+
+  dollars[method] = array[method].length === 2 ? function proxy2args(obj, fn) {
     return Array.isArray(obj)
-    ? array[key](obj, fn)
-    : object[key](obj, fn);
+    ? array[method](obj, fn)
+    : object[method](obj, fn);
   } : function proxy1arg(obj) {
     return Array.isArray(obj)
-    ? array[key](obj)
-    : object[key](obj);
+    ? array[method](obj)
+    : object[method](obj);
   };
 });
 
