@@ -89,5 +89,17 @@ describe('dollars', function () {
         assume(res.foo).equals('pez');
       });
     });
+
+    describe('.keys', function () {
+      it('returns an array with keys of the obj', function () {
+        var obj = { foo: 'bar', bar: 'baz' }
+          , res = dollars.object.keys(obj);
+
+        assume(res).is.a('array');
+        assume(res).has.length(2);
+        assume(res).contains('bar');
+        assume(res).contains('foo');
+      });
+    });
   });
 });
