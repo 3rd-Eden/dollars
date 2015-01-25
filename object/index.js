@@ -62,7 +62,7 @@ dollars.each = function each(obj, fn) {
 
 /**
  * A breakable each. It iterates over the keys of an object and calls the
- * supplied callback. If the callback returns `true` we will stop the
+ * supplied callback. If the callback returns `false` we will stop the
  * iteration.
  *
  * @param {Object} obj Object to iterate over.
@@ -75,7 +75,7 @@ dollars.breaks = function breaks(obj, fn) {
     , i = 0;
 
   for (; i < length; i++) {
-    if (true === fn(obj[keys[i]], keys[i])) break;
+    if (false === fn(obj[keys[i]], keys[i])) break;
   }
 };
 
