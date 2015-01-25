@@ -107,6 +107,15 @@ dollars.concat = function concat(obj) {
   return obj;
 };
 
+/**
+ * Get all the given of the given object.
+ *
+ * @param {Object} obj The object who's keys we need to extract.
+ * @returns {Array}
+ * @api public
+ */
+dollars.keys = Object.keys;
+
 //
 // Expose the methods.
 //
