@@ -22,6 +22,45 @@ describe('dollars', function () {
     });
   });
 
+  describe('.array', function () {
+    describe('.map', function () {
+      it('returns a new array', function () {
+        var arr = [9,3,13,41];
+        var res = dollars.array.map(arr, function (key, index) {
+          return index;
+        });
+
+        assume(res).deep.equals([0,1,2,3]);
+        assume(res).does.not.equal(arr);
+      });
+    });
+
+    describe('.each', function () {
+      it('iterates over the given array', function (next) {
+        next = assume.plan(5, next);
+
+        dollars.array.each([1, 1, 1, 1 ,1], function (nr) {
+          assume(nr).equals(1);
+        });
+
+        next();
+      });
+    });
+
+    describe('.breaks', function () {
+      it('can breat the iteration by returning true', function (next) {
+        next = assume.plan(1, next);
+
+        dollars.array.breaks([1, 1, 1, 2], function (nr) {
+          assume(nr).equals(1);
+          return false;
+        });
+
+        next();
+      });
+    });
+  });
+
   describe('.object', function () {
     describe('.clone', function () {
       var obj = { foo: 'bar', bar: undefined };
@@ -55,7 +94,7 @@ describe('dollars', function () {
         dollars.object.breaks({ foo: 'bar', bar: 'bar' }, function (value, key) {
           assume(value).equals('bar');
 
-          return true;
+          return false;
         });
 
         next();
